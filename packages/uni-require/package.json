@@ -1,0 +1,35 @@
+{
+  "name": "uni-require",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [
+    "node",
+    "require",
+    "import",
+    "esm"
+  ],
+  "homepage": "https://github.com/cyberuni/uni-require",
+  "bugs": {
+    "url": "https://github.com/cyberuni/uni-require/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cyberuni/uni-require.git",
+    "directory": "packages/uni-require"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Homa Wong (unional)",
+    "email": "homawong@gmail.com"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "require": "./index.cjs",
+      "default": "./index.cjs"
+    }
+  },
+  "main": "./index.cjs"
+}

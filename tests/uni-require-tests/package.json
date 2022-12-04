@@ -1,0 +1,10 @@
+{
+  "name": "uni-require-tests",
+  "private": true,
+  "scripts": {
+    "test": "node index.cjs && node index.mjs"
+  },
+  "dependencies": {
+    "uni-require": "workspace:^"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "turbo run test",
+    "cs": "changeset",
+    "release": "changeset publish",
+    "version": "changeset version"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.25.2",
+    "turbo": "^1.6.3"
+  }
+}
