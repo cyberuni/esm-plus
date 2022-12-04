@@ -4,6 +4,7 @@
     "build": "turbo run build",
     "test": "turbo run test",
     "cs": "changeset",
+    "require": "pnpm --filter uni-require",
     "release": "changeset publish",
     "version": "changeset version",
     "verify": "turbo run test"

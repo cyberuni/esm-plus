@@ -26,10 +26,18 @@
   "type": "module",
   "exports": {
     ".": {
+      "types": "./index.d.ts",
       "import": "./index.js",
       "require": "./index.cjs",
       "default": "./index.cjs"
     }
   },
-  "main": "./index.cjs"
+  "main": "./index.cjs",
+  "types": "./index.d.cts",
+  "devDependencies": {
+    "@types/node": "^18.11.10"
+  },
+  "peerDependencies": {
+    "@types/node": "*"
+  }
 }
