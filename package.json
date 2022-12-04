@@ -1,10 +1,12 @@
 {
   "private": true,
   "scripts": {
+    "build": "turbo run build",
     "test": "turbo run test",
     "cs": "changeset",
     "release": "changeset publish",
-    "version": "changeset version"
+    "version": "changeset version",
+    "verify": "turbo run test"
   },
   "devDependencies": {
     "@changesets/cli": "^2.25.2",
