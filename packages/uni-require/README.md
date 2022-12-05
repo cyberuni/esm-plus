@@ -1,11 +1,14 @@
 # uni-require
 
-A `require()` function that works on both CJS and ESM.
+The `require()` function is not available for ESM package.
 
-There are [differences] between CJS and ESM.
+But there are situation you need to use it,
+for example the `require.resolve()` function.
 
-When you want to create a package with dual package support,
-you need a way to import module that works on both CJS and ESM.
+While you can get back the functionality using `import.meta`,
+you will run into problems if you want to do dual packaging.
+
+This library helps you in that regards by providing a uniform (thus `uni-*`) interface for it.
 
 ## Install
 
@@ -25,12 +28,25 @@ rush add -p uni-require
 
 ## Usage
 
+The `uniRequire()` function is a ponyfill of the `require()` function.
+
+As such, it can be used to import CJS package,
+but cannot be used to import ESM package.
+
+Most of the time, you should use `import` to import both CJS and ESM package.
+
+The main benefits provided by `uniRequire()` is the `uniRequire.resolve()`.
+
 CommonJS:
 
 ```ts
 const uniRequire = require('uni-require')
 
-const chalk = uniRequire('chalk')
+// it can be used to load CommonJS package
+const child_process = uniRequire('child_process')
+
+// it can be used to resolve (but not load) ESM package
+const chalkPath = uniRequire.resolve('chalk')
 ```
 
 ESM:
@@ -38,7 +54,9 @@ ESM:
 ```ts
 import uniRequire from 'uni-require'
 
-const chalk = uniRequire('chalk')
-```
+// it can be used to load CommonJS package
+const child_process = uniRequire('child_process')
 
-[differences]: https://nodejs.org/api/esm.html#differences-between-es-modules-and-commonjs
+// it can be used to resolve (but not load) ESM package
+const chalkPath = uniRequire.resolve('chalk')
+```
