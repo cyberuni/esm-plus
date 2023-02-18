@@ -34,6 +34,10 @@
   },
   "main": "./index.cjs",
   "types": "./index.d.cts",
+  "files": [
+    "index.*",
+    "!**/*.{spec,test,unit,accept,integrate,system}.*"
+  ],
   "devDependencies": {
     "@types/node": "^18.11.10"
   },
