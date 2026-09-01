@@ -1,5 +1,13 @@
 # uni-require
 
+## 1.0.1
+
+### Patch Changes
+
+- 8389a5e: add `files` field to exclude extra files
+- cf833a3: Upgrade `@changesets/cli` to v3
+- 4894b06: Adjust CJS type
+
 ## 1.0.0
 
 ### Major Changes
