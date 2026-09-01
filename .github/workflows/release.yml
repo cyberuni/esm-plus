@@ -12,4 +12,8 @@ jobs:
   release:
     uses: cyberuni/.github/.github/workflows/pnpm-release-changeset.yml@v2
     needs: code
+    permissions:
+      id-token: write
+      contents: write
+      pull-requests: write
     secrets: inherit
