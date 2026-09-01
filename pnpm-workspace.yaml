@@ -3,3 +3,5 @@ packages:
   - tests/*
 allowBuilds:
   turbo: true
+minimumReleaseAge: 1440
+minimumReleaseAgeStrict: true

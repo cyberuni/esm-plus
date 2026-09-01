@@ -1,5 +1,38 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>unional/renovate-preset"
+    "github>unional/renovate-preset",
+    ":semanticCommitTypeAll(chore)"
+  ],
+  "minimumReleaseAge": "1 day",
+  "internalChecksFilter": "strict",
+  "platformAutomerge": true,
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true
+  },
+  "packageRules": [
+    {
+      "description": "Automerge devDependencies and workspace tooling on non-major updates.",
+      "matchDepTypes": ["devDependencies", "packageManager"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
+    {
+      "description": "Automerge GitHub Actions on non-major updates.",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "automerge": true
+    },
+    {
+      "description": "Runtime dependencies stay manual - a human decides what ships.",
+      "matchDepTypes": ["dependencies", "peerDependencies"],
+      "automerge": false
+    },
+    {
+      "description": "Majors are always reviewed by a human.",
+      "matchUpdateTypes": ["major"],
+      "automerge": false
+    }
   ]
 }
