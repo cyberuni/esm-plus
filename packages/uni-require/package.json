@@ -39,7 +39,7 @@
     "!**/*.{spec,test,unit,accept,integrate,system}.*"
   ],
   "devDependencies": {
-    "@types/node": "^18.11.10"
+    "@types/node": "^26.4.0"
   },
   "peerDependencies": {
     "@types/node": "*"
