@@ -1,5 +1,38 @@
 # uni-require
 
+> [!WARNING]
+> **Deprecated. Do not use this package.**
+>
+> `uniRequire.resolve()` — the capability this package exists to provide — has
+> never worked as documented. Both entry points bind `require` to *uni-require's*
+> own module scope rather than the caller's:
+>
+> ```js
+> // index.js
+> const uniRequire = createRequire(import.meta.url)  // uni-require's URL, not yours
+>
+> // index.cjs
+> const uniRequire = require                          // uni-require's require, not yours
+> ```
+>
+> So `uniRequire.resolve('./x')` resolves relative to `uni-require`, not to your
+> module. This is not fixable while keeping the API: an ES module cannot discover
+> its caller's URL.
+>
+> ### Use Node's own `createRequire` instead
+>
+> ```js
+> import { createRequire } from 'node:module'
+> const require = createRequire(import.meta.url)      // your URL — correct
+> ```
+>
+> Available since Node 12. It is one line, it is in the standard library, and it
+> resolves from the right place.
+>
+> The dual-packaging problem described below is also largely moot now: Node 22.12
+> and later support `require()` of an ES module directly.
+
+
 The `require()` function is not available for ESM package.
 
 But there are situation you need to use it,
