@@ -8,13 +8,13 @@
     "import",
     "esm"
   ],
-  "homepage": "https://github.com/cyberuni/uni-require",
+  "homepage": "https://github.com/cyberuni/esm-plus",
   "bugs": {
-    "url": "https://github.com/cyberuni/uni-require/issues"
+    "url": "https://github.com/cyberuni/esm-plus/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cyberuni/uni-require.git",
+    "url": "https://github.com/cyberuni/esm-plus.git",
     "directory": "packages/uni-require"
   },
   "license": "MIT",
