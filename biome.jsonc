@@ -1,0 +1,37 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.5.11/schema.json",
+  "extends": ["@repobuddy/biome/recommended"],
+  "files": {
+    "includes": [
+      "!**/.turbo",
+      "!**/coverage",
+      "!**/node_modules",
+      "!pnpm-lock.yaml",
+      "!skills-lock.json"
+    ]
+  },
+  "formatter": {
+    // Matches `.editorconfig`, which the rest of the tooling also reads.
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 100
+  },
+  "javascript": {
+    // `extends` REPLACES `javascript.formatter` wholesale rather than merging into it, so
+    // every value this repo depends on has to be restated here, not just the overrides.
+    "formatter": {
+      "quoteStyle": "single",
+      "semicolons": "asNeeded",
+      "trailingCommas": "none"
+    }
+  },
+  "linter": {
+    "rules": {
+      "style": {
+        // Ships at `info`, where biome still exits 0 on a bare `require('path')`. This
+        // repo is about module resolution; an unprefixed builtin has to be an error.
+        "useNodejsImportProtocol": "error"
+      }
+    }
+  }
+}

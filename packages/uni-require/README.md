@@ -60,3 +60,27 @@ const child_process = uniRequire('child_process')
 // it can be used to resolve (but not load) ESM package
 const chalkPath = uniRequire.resolve('chalk')
 ```
+
+## Resolution is relative to the calling file
+
+`uniRequire()` and `uniRequire.resolve()` answer from the file that called them, exactly as
+a built-in `require()` does. `uniRequire('./package.json')` reads *your* manifest, and
+`uniRequire.resolve('chalk')` searches *your* `node_modules`.
+
+The call site is read off the stack. That works for ordinary Node code in both CJS and ESM,
+but bundlers and transpilers can erase the frame the lookup needs. Where that happens, name
+the location yourself:
+
+```ts
+// ESM
+import { createUniRequire } from 'uni-require'
+
+const require = createUniRequire(import.meta.url)
+```
+
+```ts
+// CommonJS
+const { createUniRequire } = require('uni-require')
+
+const localRequire = createUniRequire(__filename)
+```

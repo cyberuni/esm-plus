@@ -1,49 +1,46 @@
 {
   "$schema": "https://turborepo.com/schema.json",
   "tasks": {
-    "build": {
-      "dependsOn": [
-        "^build"
-      ]
-    },
     "clean": {
       "cache": false
     },
     "coverage": {
-      "dependsOn": [
-        "^build"
-      ]
+      "inputs": [
+        "package.json",
+        "tsconfig.json",
+        "vitest.config.mts",
+        "**/*.{js,cjs,mjs,ts,cts,mts}"
+      ],
+      "outputs": ["coverage/**"]
     },
     "depcheck": {
-      "dependsOn": [
-        "build"
-      ]
+      "inputs": ["package.json", ".depcheckrc.yaml", "**/*.{js,cjs,mjs,ts,cts,mts}"]
     },
     "dev": {
       "cache": false
     },
-    "lint": {
-      "dependsOn": [
-        "^build"
-      ]
-    },
     "nuke": {
       "cache": false
     },
-    "size": {
-      "dependsOn": [
-        "build"
+    "test": {
+      "inputs": [
+        "package.json",
+        "tsconfig.json",
+        "vitest.config.mts",
+        "**/*.{js,cjs,mjs,ts,cts,mts}"
       ]
     },
-    "test": {
-      "dependsOn": [
-        "^build"
+    "typecheck": {
+      "inputs": [
+        "package.json",
+        "tsconfig.json",
+        "vitest.config.mts",
+        "**/*.{js,cjs,mjs,ts,cts,mts}"
       ]
     },
     "watch": {
-      "dependsOn": [
-        "^build"
-      ]
+      "cache": false,
+      "persistent": true
     }
   }
 }

@@ -2,18 +2,16 @@
   "name": "uni-require-tests",
   "private": true,
   "scripts": {
-    "test": "pnpm run test:js && pnpm run test:ts",
-    "test:js": "node index.cjs && node index.mjs",
-    "test:ts": "pnpm run test:ts:cjs && pnpm run test:ts:esm",
-    "test:ts:cjs": "ts-node cjs/index.ts",
-    "test:ts:esm": "ts-node --esm esm/index.ts"
+    "depcheck": "depcheck",
+    "test": "node index.cjs && node index.mjs",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "uni-require": "workspace:^"
   },
   "devDependencies": {
     "@types/node": "^26.4.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
+    "depcheck": "^1.4.7",
+    "typescript": "^7.0.2"
   }
 }

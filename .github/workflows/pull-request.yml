@@ -2,9 +2,15 @@ name: pull-request
 on:
   pull_request:
     types: [opened, synchronize]
+  # The merge queue builds a temporary merge-group branch and looks for the required
+  # `code / all-checks` context there. It fires neither `pull_request` nor `push`, so
+  # without this trigger the queue waits forever on a check that never starts.
+  merge_group:
 
 jobs:
   code:
     uses: cyberuni/.github/.github/workflows/pnpm-verify.yml@v2
     with:
       skip-playwright: true
+      # Codecov is not wired up here; a stale codecov context would just block merges.
+      skip-codecov: true

@@ -1,9 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "github>unional/renovate-preset",
-    ":semanticCommitTypeAll(chore)"
-  ],
+  "extends": ["github>unional/renovate-preset", ":semanticCommitTypeAll(chore)"],
   "minimumReleaseAge": "1 day",
   "internalChecksFilter": "strict",
   "platformAutomerge": true,

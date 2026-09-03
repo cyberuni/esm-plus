@@ -1,0 +1,8 @@
+ignores:
+  # Referenced from `index.d.ts` / `index.d.cts` via `///<reference types="node" />`,
+  # which depcheck does not follow. It is also the package's peer dependency.
+  - '@types/node'
+  # Coverage provider, selected by `vitest run --coverage` rather than imported.
+  - '@vitest/coverage-v8'
+  # Runs `tsc` for the `typecheck` script.
+  - 'typescript'

@@ -8,6 +8,7 @@ jobs:
     uses: cyberuni/.github/.github/workflows/pnpm-verify.yml@v2
     with:
       skip-playwright: true
+      skip-codecov: true
 
   release:
     uses: cyberuni/.github/.github/workflows/pnpm-release-changeset.yml@v2

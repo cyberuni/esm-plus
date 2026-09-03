@@ -1,0 +1,5 @@
+ignores:
+  # Ambient types only; depcheck reads imports, not `types` in tsconfig.
+  - '@types/node'
+  # Runs `tsc` for the `typecheck` script.
+  - 'typescript'

@@ -1,47 +1,68 @@
 {
   "name": "uni-require",
   "version": "1.0.1",
-  "description": "",
+  "description": "A uniform require() for dual CJS/ESM packages",
   "keywords": [
     "node",
     "require",
     "import",
     "esm"
   ],
-  "homepage": "https://github.com/cyberuni/uni-require",
+  "homepage": "https://github.com/cyberuni/esm-plus",
   "bugs": {
-    "url": "https://github.com/cyberuni/uni-require/issues"
+    "url": "https://github.com/cyberuni/esm-plus/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cyberuni/uni-require.git",
+    "url": "https://github.com/cyberuni/esm-plus.git",
     "directory": "packages/uni-require"
   },
   "license": "MIT",
   "author": {
     "name": "Homa Wong (unional)",
-    "email": "homawong@gmail.com"
+    "email": "homawong@gmail.com",
+    "url": "https://github.com/unional"
   },
   "sideEffects": false,
   "type": "module",
   "exports": {
     ".": {
-      "types": "./index.d.ts",
-      "import": "./index.js",
-      "require": "./index.cjs",
+      "import": {
+        "types": "./index.d.ts",
+        "default": "./index.js"
+      },
+      "require": {
+        "types": "./index.d.cts",
+        "default": "./index.cjs"
+      },
       "default": "./index.cjs"
     }
   },
   "main": "./index.cjs",
   "types": "./index.d.cts",
   "files": [
+    "CHANGELOG.md",
     "index.*",
     "!**/*.{spec,test,unit,accept,integrate,system}.*"
   ],
+  "scripts": {
+    "coverage": "vitest run --coverage",
+    "depcheck": "depcheck",
+    "test": "vitest run",
+    "typecheck": "tsc",
+    "watch": "vitest"
+  },
   "devDependencies": {
-    "@types/node": "^26.4.0"
+    "@types/node": "^26.4.0",
+    "@vitest/coverage-v8": "^4.1.11",
+    "depcheck": "^1.4.7",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.11"
   },
   "peerDependencies": {
     "@types/node": "*"
+  },
+  "engines": {
+    "node": ">= 18"
   }
 }

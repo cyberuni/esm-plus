@@ -1,8 +1,15 @@
+// Smoke test for the ESM entry, run by plain `node` so no transform sits between the
+// call site and the stack `uniRequire()` reads.
 import assert from 'node:assert'
-import u, { uniRequire } from 'uni-require'
+import { fileURLToPath } from 'node:url'
+import u, { createUniRequire, uniRequire } from 'uni-require'
 
-const cp = u('child_process')
-assert(cp)
+const here = fileURLToPath(new URL('./package.json', import.meta.url))
 
-const cp2 = uniRequire('child_process')
-assert(cp2)
+assert(u('node:child_process'))
+assert(uniRequire('node:child_process'))
+
+// Regression: the require must be bound to THIS file, not to uni-require's own module.
+assert.equal(u.resolve('./package.json'), here)
+assert.equal(u('./package.json').name, 'uni-require-tests')
+assert.equal(createUniRequire(import.meta.url).resolve('./package.json'), here)
