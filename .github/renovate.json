@@ -13,6 +13,12 @@
   },
   "packageRules": [
     {
+      "description": "The toolchain pins (mise, nvm) move with packageManager, so they merge themselves too.",
+      "matchManagers": ["mise"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
+    {
       "description": "Automerge devDependencies and workspace tooling on non-major updates.",
       "matchDepTypes": ["devDependencies", "packageManager"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
