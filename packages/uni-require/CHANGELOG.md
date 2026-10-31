@@ -1,5 +1,11 @@
 # uni-require
 
+## 1.0.2
+
+### Patch Changes
+
+- fc08d67: Include `CHANGELOG.md` in the published package.
+
 ## 1.0.1
 
 ### Patch Changes
