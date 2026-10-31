@@ -36,7 +36,8 @@
   "types": "./index.d.cts",
   "files": [
     "index.*",
-    "!**/*.{spec,test,unit,accept,integrate,system}.*"
+    "!**/*.{spec,test,unit,accept,integrate,system}.*",
+    "CHANGELOG.md"
   ],
   "devDependencies": {
     "@types/node": "^26.4.0"
