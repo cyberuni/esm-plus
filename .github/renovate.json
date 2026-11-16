@@ -29,11 +29,6 @@
       "matchManagers": ["github-actions"],
       "matchUpdateTypes": ["minor", "patch", "digest"],
       "automerge": true
-    },
-    {
-      "description": "Runtime dependencies stay manual - a human decides what ships.",
-      "matchDepTypes": ["dependencies", "peerDependencies"],
-      "automerge": false
     }
   ]
 }
