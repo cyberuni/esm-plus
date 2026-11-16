@@ -4,7 +4,6 @@
     "github>repobuddy/renovate-preset",
     ":semanticCommitTypeAll(chore)"
   ],
-  "minimumReleaseAge": "1 day",
   "internalChecksFilter": "strict",
   "platformAutomerge": true,
   "lockFileMaintenance": {
