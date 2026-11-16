@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>unional/renovate-preset",
+    "github>repobuddy/renovate-preset",
     ":semanticCommitTypeAll(chore)"
   ],
   "minimumReleaseAge": "1 day",
@@ -33,11 +33,6 @@
     {
       "description": "Runtime dependencies stay manual - a human decides what ships.",
       "matchDepTypes": ["dependencies", "peerDependencies"],
-      "automerge": false
-    },
-    {
-      "description": "Majors are always reviewed by a human.",
-      "matchUpdateTypes": ["major"],
       "automerge": false
     }
   ]
